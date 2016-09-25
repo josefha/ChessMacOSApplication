@@ -17,6 +17,10 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        GameBoard().placePiecesOnBoard()
+        let piece = GameBoard().pieceOnPosion(postion: (("b"),2))
+        
+        print(piece?.possibleMoves())
         
 
         if let view = self.skView {

@@ -12,19 +12,32 @@ import GameKit
 
 class PawnPiece: ChessPiece {
     
-    
-    
+    override func possibleMoves() -> [BoardPosition]{
+        
+        var possibleMoves:[BoardPosition] = []
+        
+        //TODO: Possible twosteps in First Postion
+        //TODO: Different moves depending on what piececolor.. (only for the pown piece)
+        if let move = ChessMoves().moveOneStep(postion:self.position, directions: direction.up){
+            possibleMoves.append(move)
+        }
+        if let move = ChessMoves().moveNsteps(position:self.position, directions: [direction.up, direction.right]){
+            if(GameBoard().isEnemyPiece(colorOfPiece: self.colorOfPiece, position: move)){
+                possibleMoves.append(move)
+            }
+        }
+        if let move = ChessMoves().moveNsteps(position:self.position, directions: [direction.up, direction.left]){
+            if(GameBoard().isEnemyPiece(colorOfPiece: self.colorOfPiece, position: move)){
+                possibleMoves.append(move)
+            }
+        }
+        return possibleMoves
+    }
     
     func movePiece() {
-
     }
     
-    func possibleMoves() -> [BoardPosition] {
-        return ChessMoves().PosiblePownMoves(piece: self)
-    }
-    
-    override init(typeOfPiece:PieceType, colorOfPiece:PieceColor, position:BoardPosition)
-    {
+    override init(typeOfPiece:PieceType, colorOfPiece:PieceColor, position:BoardPosition){
         super.init(typeOfPiece: typeOfPiece, colorOfPiece: colorOfPiece, position: position)
     }
 }

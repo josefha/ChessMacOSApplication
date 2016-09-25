@@ -41,6 +41,7 @@ class GameBoard{
         piecesOnBoard.append(pawnPiece8)
         piecesOnBoard.append(pawnPiece9)
     }
+
     
     //Remove a chesspiece at postion postion
     func removePiece(position:BoardPosition){
@@ -56,6 +57,16 @@ class GameBoard{
             }
         }
         return nil
+    }
+    
+    //Returns true if targetPiece is an enemy
+    func isEnemyPiece(colorOfPiece:PieceColor, position:BoardPosition) -> Bool{
+        if let targetPiece = GameBoard().pieceOnPosion(postion: position){
+            if colorOfPiece != targetPiece.colorOfPiece{
+                return true
+            }
+        }
+        return false
     }
     
     //Returns true if position is empty

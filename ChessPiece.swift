@@ -37,5 +37,11 @@ class ChessPiece {
         self.position = position
     }
     
+    func possibleMoves() -> [BoardPosition]{
+        return []
+    }
+    
+
+    
     
 }
