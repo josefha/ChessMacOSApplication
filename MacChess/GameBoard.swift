@@ -28,8 +28,10 @@ class GameBoard{
         let pawnPiece6 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("f",2))
         let pawnPiece7 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("g",2))
         let pawnPiece8 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("h",2))
-        
         let pawnPiece9 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.black, position:("c",3))
+        
+        
+        
         
         piecesOnBoard.append(pawnPiece1)
         piecesOnBoard.append(pawnPiece2)
@@ -41,7 +43,14 @@ class GameBoard{
         piecesOnBoard.append(pawnPiece8)
         piecesOnBoard.append(pawnPiece9)
     }
-
+    
+    
+    
+    
+    func boardPostionToString(position:BoardPosition) -> String{
+        let (c,i):BoardPosition = position
+        return "\(c)\(i)"
+    }
     
     //Remove a chesspiece at postion postion
     func removePiece(position:BoardPosition){

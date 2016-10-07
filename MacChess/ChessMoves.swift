@@ -7,12 +7,22 @@
 //
 
 import Foundation
-
+import SpriteKit
 enum direction {
     case up, down, right, left
 }
 
 class ChessMoves {
+    
+    
+    func findSquare(postion: BoardPosition) -> SKSpriteNode? {
+        for square in squares {
+            print(square.name)
+        
+        }
+        
+        return squares.first
+    }
     
     //returns true if postion is on chessboard
     public func IsPositionOnBoard(postion:BoardPosition) -> Bool {

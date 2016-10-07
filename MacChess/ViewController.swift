@@ -19,9 +19,9 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         GameBoard().placePiecesOnBoard()
-        let piece = GameBoard().pieceOnPosion(postion: (("b"),2))
+        //let piece = GameBoard().pieceOnPosion(postion: (("b"),2))
         
-        print(piece?.possibleMoves())
+        //print(piece?.possibleMoves())
     
         if let view = self.skView {
             // Load the SKScene from 'GameScene.sks'

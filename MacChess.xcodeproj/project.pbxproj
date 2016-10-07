@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D27CE1541DA7E98D0010DF95 /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CE1531DA7E98D0010DF95 /* Graphics.swift */; };
 		D2AD767E1D9560440012A5EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD767D1D9560440012A5EF /* AppDelegate.swift */; };
 		D2AD76801D9560440012A5EF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2AD767F1D9560440012A5EF /* GameScene.sks */; };
 		D2AD76821D9560440012A5EF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2AD76811D9560440012A5EF /* Actions.sks */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D27CE1531DA7E98D0010DF95 /* Graphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graphics.swift; sourceTree = "<group>"; };
 		D2AD767A1D9560440012A5EF /* MacChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AD767D1D9560440012A5EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2AD767F1D9560440012A5EF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -114,9 +116,10 @@
 				D2AD767D1D9560440012A5EF /* AppDelegate.swift */,
 				D2AD767F1D9560440012A5EF /* GameScene.sks */,
 				D2AD76811D9560440012A5EF /* Actions.sks */,
-				D2AD76831D9560440012A5EF /* GameScene.swift */,
 				D2AD76851D9560440012A5EF /* ViewController.swift */,
 				D2AD76871D9560440012A5EF /* Assets.xcassets */,
+				D2AD76831D9560440012A5EF /* GameScene.swift */,
+				D27CE1531DA7E98D0010DF95 /* Graphics.swift */,
 				D2AD76B61D957EC30012A5EF /* ChessMoves.swift */,
 				D2AD76B81D9581420012A5EF /* PieceProtocol.swift */,
 				D2AD76B41D956E5C0012A5EF /* GameBoard.swift */,
@@ -287,6 +290,7 @@
 				D2AD76B31D9567D70012A5EF /* PawnPiece.swift in Sources */,
 				D2AD767E1D9560440012A5EF /* AppDelegate.swift in Sources */,
 				D2AD76B51D956E5C0012A5EF /* GameBoard.swift in Sources */,
+				D27CE1541DA7E98D0010DF95 /* Graphics.swift in Sources */,
 				D2AD76B91D9581420012A5EF /* PieceProtocol.swift in Sources */,
 				D2AD76B11D9566970012A5EF /* ChessPiece.swift in Sources */,
 			);
