@@ -16,7 +16,7 @@ class GameScene: SKScene {
     
     
     override func didMove(to view: SKView) {
-        Graphics().initSquares(wHeight: self.size.height, wWidth: self.size.width)
+        Graphics.initSquares(wHeight: self.size.height, wWidth: self.size.width)
         addSquaresToGameScene()
         //let a = ChessMoves().findSquare(position: ("b",2))
     }

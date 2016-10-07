@@ -136,7 +136,7 @@
                   moduleName = "MacChess"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Josef/Desktop/MacChess/ChessPiece.swift"
-                  timestampString = "497546430.648265"
+                  timestampString = "497572705.727959"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -151,7 +151,7 @@
                   moduleName = "MacChess"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Josef/Desktop/MacChess/ChessPiece.swift"
-                  timestampString = "497546430.649995"
+                  timestampString = "497572705.729797"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacChess/GameBoard.swift"
-            timestampString = "497184143.8783"
+            timestampString = "497572704.188277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "pieceOnPosion(postion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacChess/GameBoard.swift"
-            timestampString = "497184143.8783"
+            timestampString = "497572704.188277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "GameBoard"
             landmarkType = "3">
          </BreakpointContent>
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacChess/ChessMoves.swift"
-            timestampString = "497546429.116169"
+            timestampString = "497546852.047456"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "moveNsteps(position:directions:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacChess/ChessMoves.swift"
-            timestampString = "497546429.116169"
+            timestampString = "497546852.047456"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "moveOneStep(postion:directions:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -312,27 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacChess/ChessMoves.swift"
-            timestampString = "497546429.116169"
+            timestampString = "497546852.047456"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "findSquare(position:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacChess/ChessMoves.swift"
-            timestampString = "497546429.116169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "ChessMoves"
             landmarkType = "3">
          </BreakpointContent>
@@ -343,13 +327,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MacChess/ChessMoves.swift"
-            timestampString = "497546422.875061"
+            filePath = "MacChess/GameScene.swift"
+            timestampString = "497546686.483439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "findSquare(position:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "didMove(to:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacChess/GameBoard.swift"
+            timestampString = "497572704.188277"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "postionSelected(postion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

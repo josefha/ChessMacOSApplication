@@ -12,13 +12,14 @@ import GameKit
 
 class Graphics{
     
-    func initPieces(){
+
+    class func initPieces(){
         
         //if let a2 = squares.contains(where: {$0.name == "a2"}).first {pawn1.position = a2.postion}
         
     }
     
-    func initSquares(wHeight: CGFloat, wWidth: CGFloat){
+    class func initSquares(wHeight: CGFloat, wWidth: CGFloat){
         
         print("init the graphic")
         

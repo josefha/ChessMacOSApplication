@@ -15,7 +15,6 @@ enum direction {
 
 class ChessMoves {
     
-    
     func findSquare(position: BoardPosition) -> SKSpriteNode{
         
         let (c,i) = position
@@ -31,7 +30,7 @@ class ChessMoves {
     }
     
     //returns true if postion is on chessboard
-    public func IsPositionOnBoard(postion:BoardPosition) -> Bool {
+    func IsPositionOnBoard(postion:BoardPosition) -> Bool {
         let (c,i) = postion
         return (i >= 1 && i <= 8 && c>="a" && c<="h")
     }
