@@ -47,7 +47,7 @@ class GameBoard{
     
     
     
-    func boardPostionToString(position:BoardPosition) -> String{
+    class func boardPostionToString(position:BoardPosition) -> String{
         let (c,i):BoardPosition = position
         return "\(c)\(i)"
     }
