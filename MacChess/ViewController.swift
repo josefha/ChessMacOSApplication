@@ -19,15 +19,13 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         GameBoard().placePiecesOnBoard()
-        //let piece = GameBoard().pieceOnPosion(postion: (("b"),2))
-        
-        //print(piece?.possibleMoves())
     
         if let view = self.skView {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFit
+                
+                scene.scaleMode = .resizeFill
                 // Present the scene
                 view.presentScene(scene)
             }
@@ -35,7 +33,7 @@ class ViewController: NSViewController {
             view.ignoresSiblingOrder = true
             
             //view.showsFPS = true
-            view.showsNodeCount = true
+            view.showsNodeCount = false
         }
     }
     

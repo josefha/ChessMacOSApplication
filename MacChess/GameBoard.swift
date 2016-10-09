@@ -13,54 +13,61 @@ typealias BoardPosition = (Character, Int)
 var piecesOnBoard:[ChessPiece] = []
 
 class GameBoard{
-    
 
     var pieceSelected: ChessPiece? = nil
-    var positionSelected: BoardPosition? = nil
     var turnToMove: PieceColor = PieceColor.white
     
     init(){}
     
+    //NOT TESTED
     func makeMove(piece: ChessPiece, destination: BoardPosition){
-        
-        
-        
+
         if pieceOnPosion(postion: destination) != nil{
             removePiece(position: destination)
             //removePieceFromGraphics
         }
         piece.position = destination
-
         //movePieceInGraphics(from: piece.position, destination: destination)
         
         pieceSelected = nil
-        
-        if turnToMove == PieceColor.white {
-            turnToMove = PieceColor.black
-        }
-        else {
-            turnToMove = PieceColor.white
-        }
-    }
 
-    //NOT TESTED
+        
+//        if turnToMove == PieceColor.white {
+//            turnToMove = PieceColor.black
+//        }
+//        else {
+//            turnToMove = PieceColor.white
+//        }
+    }
+    
+
+
+    //
     func postionSelected(postion: BoardPosition) {
         if let piece = pieceSelected {
+            Graphics.resetSquareHighlights(positions: piece.possibleMoves())
             
             if piece.possibleMoves().contains(where: { $0 == postion }){
                 makeMove(piece: piece, destination: postion)
             }
+            else{
+                pieceSelected = nil
+            }
         }
-        else {
+        
+        if pieceSelected == nil {
             if let piece = pieceOnPosion(postion: postion){
+                print(piece.colorOfPiece)
                 if piece.colorOfPiece == turnToMove{
-                    //hightlightPossibleMoves(piece)
+                    Graphics.highlightPossibleMoves(squares: squares, moves: piece.possibleMoves())
                     pieceSelected = piece
+                    print(piece.typeOfPiece)
                 }
             }
         }
     }
     
+    //Returns a string representation of specific BoardPostion
     class func boardPostionToString(position:BoardPosition) -> String{
         let (c,i):BoardPosition = position
         return "\(c)\(i)"
@@ -95,6 +102,17 @@ class GameBoard{
     //Returns true if position is empty
     func IsPostionEmpty(postion:BoardPosition) -> Bool{
         return (pieceOnPosion(postion: postion) == nil)
+    }
+    
+    //Returns a BoardPoston from a string representation
+    class func stringToPostion(string: String) -> BoardPosition? {
+        let split = Array(string.characters)
+        let string:String = String((split[1]))
+        
+        if let int:Int = Int(string) {
+            return (split[0],int)
+        }
+        return nil
     }
     
     func placePiecesOnBoard(){

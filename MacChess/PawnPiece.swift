@@ -17,6 +17,7 @@ class PawnPiece: ChessPiece {
         var possibleMoves:[BoardPosition] = []
         
         //TODO: Possible twosteps in First Postion
+        //TODO: Turn into Queen on last row
         //TODO: Different moves depending on what piececolor.. (only for the pown piece)
         if let move = ChessMoves().moveOneStep(postion:self.position, directions: direction.up){
             possibleMoves.append(move)

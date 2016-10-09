@@ -14,11 +14,14 @@ var squares:[SKSpriteNode] = []
 
 class GameScene: SKScene {
     
+    var gameBoard: GameBoard = GameBoard()
     
     override func didMove(to view: SKView) {
         Graphics.initSquares(wHeight: self.size.height, wWidth: self.size.width)
+        Graphics.initPieces()
         addSquaresToGameScene()
-        //let a = ChessMoves().findSquare(position: ("b",2))
+        
+        gameBoard.placePiecesOnBoard()
     }
     
     func addSquaresToGameScene(){
@@ -26,8 +29,23 @@ class GameScene: SKScene {
             addChild(square)
         }
     }
+
+    
+    override func mouseDown(with event: NSEvent) {
+        let click = event.locationInWindow
+        let nodes = self.nodes(at: click)
+        
+        if let node = nodes.first {
+            if let posistion = GameBoard.stringToPostion(string: node.name!){
+                print(posistion)
+                self.gameBoard.postionSelected(postion: posistion)
+            }
+        }
+    }
+    
     
     }
+
     
     //override func update(_ currentTime: TimeInterval) {
     //      Called before each frame is rendered

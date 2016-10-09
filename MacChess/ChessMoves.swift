@@ -15,20 +15,6 @@ enum direction {
 
 class ChessMoves {
     
-    func findSquare(position: BoardPosition) -> SKSpriteNode{
-        
-        let (c,i) = position
-        let _ = String(c) + String(i)
-        
-        for square in squares {
-            if square.name == GameBoard.boardPostionToString(position: position){
-                return square
-            }
-        }
-        
-        return squares.first!
-    }
-    
     //returns true if postion is on chessboard
     func IsPositionOnBoard(postion:BoardPosition) -> Bool {
         let (c,i) = postion
