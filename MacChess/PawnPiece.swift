@@ -19,7 +19,7 @@ class PawnPiece: ChessPiece {
         //TODO: Possible twosteps in First Postion
         //TODO: Turn into Queen on last row
         //TODO: Different moves depending on what piececolor.. (only for the pown piece)
-        if let move = ChessMoves().moveOneStep(postion:self.position, directions: direction.up){
+        if let move = ChessMoves().moveOneStep(position:self.position, directions: direction.up){
             possibleMoves.append(move)
         }
         if let move = ChessMoves().moveNsteps(position:self.position, directions: [direction.up, direction.right]){
@@ -33,9 +33,6 @@ class PawnPiece: ChessPiece {
             }
         }
         return possibleMoves
-    }
-    
-    func movePiece() {
     }
     
     override init(typeOfPiece:PieceType, colorOfPiece:PieceColor, position:BoardPosition){

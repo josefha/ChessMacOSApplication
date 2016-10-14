@@ -17,72 +17,89 @@ class GameBoard{
     var pieceSelected: ChessPiece? = nil
     var turnToMove: PieceColor = PieceColor.white
     
-    init(){}
+    init(){
+        //Need to remove global var.. create getters and setters
+        //createPieces()
+    }
     
-    //NOT TESTED
+    //Moves a pieces in our game with a possible move.
     func makeMove(piece: ChessPiece, destination: BoardPosition){
 
-        if pieceOnPosion(postion: destination) != nil{
+        if pieceOnPosion(position: destination) != nil{
             removePiece(position: destination)
-            //removePieceFromGraphics
+            if let gPiece = Graphics.findGraphicalPiece(position: destination, squares: squares, pieces: piecesInGraphic){
+                Graphics.removePiece(piece: gPiece)
+            }
+            else{print("ERROR: Grapgics is not in sync - REMOVE")}
         }
-        piece.position = destination
-        //movePieceInGraphics(from: piece.position, destination: destination)
+        
+        if let gPiece = Graphics.findGraphicalPiece(position: piece.position, squares: squares, pieces: piecesInGraphic){
+            Graphics.movePiece(piece: gPiece, position: destination)
+            piece.position = destination
+        }
+        else{print("ERROR: Grapgics is not in sync - MOVED")}
         
         pieceSelected = nil
-
-        
-//        if turnToMove == PieceColor.white {
-//            turnToMove = PieceColor.black
-//        }
-//        else {
-//            turnToMove = PieceColor.white
-//        }
+        //changeTurnToMove()
     }
+
     
 
 
-    //
-    func postionSelected(postion: BoardPosition) {
+    //runs after every click, starts game logic
+    func positionSelected(click: BoardPosition) {
+        Graphics.resetSquareHighlights()
+        
         if let piece = pieceSelected {
-            Graphics.resetSquareHighlights(positions: piece.possibleMoves())
-            
-            if piece.possibleMoves().contains(where: { $0 == postion }){
-                makeMove(piece: piece, destination: postion)
+            if piece.possibleMoves().contains(where: { $0 == click}){
+                makeMove(piece: piece, destination: click)
             }
             else{
-                pieceSelected = nil
+                selectPiece(click: click)
             }
         }
-        
-        if pieceSelected == nil {
-            if let piece = pieceOnPosion(postion: postion){
-                print(piece.colorOfPiece)
-                if piece.colorOfPiece == turnToMove{
-                    Graphics.highlightPossibleMoves(squares: squares, moves: piece.possibleMoves())
-                    pieceSelected = piece
-                    print(piece.typeOfPiece)
-                }
+        else if pieceSelected == nil {
+            selectPiece(click: click)
+        }
+    }
+    
+    //Selects a piece and higjlights possibleMoves
+    func selectPiece(click: BoardPosition){
+        if let piece = pieceOnPosion(position: click){
+            if piece.colorOfPiece == turnToMove{
+                Graphics.highlightPossibleMoves(squares: squares, moves: piece.possibleMoves())
+                pieceSelected = piece
             }
         }
     }
     
-    //Returns a string representation of specific BoardPostion
-    class func boardPostionToString(position:BoardPosition) -> String{
+    
+    //changes class var turnToMove to enemy color
+    func changeTurnToMove(){
+        if turnToMove == PieceColor.white {
+            turnToMove = PieceColor.black
+        }
+        else {
+            turnToMove = PieceColor.white
+        }
+    }
+    
+    //Returns a string representation of specific Boardposition
+    class func boardpositionToString(position:BoardPosition) -> String{
         let (c,i):BoardPosition = position
         return "\(c)\(i)"
     }
     
-    //Remove a chesspiece at postion postion
+    //Remove a chesspiece at position position
     func removePiece(position:BoardPosition){
-        let piece = pieceOnPosion(postion: position)
+        let piece = pieceOnPosion(position: position)
         piecesOnBoard = piecesOnBoard.filter() { $0 !== piece }
     }
     
-    //Returns one piece at postion if any else nil
-    func pieceOnPosion(postion:BoardPosition) -> ChessPiece? {
+    //Returns one piece at position if any else nil
+    func pieceOnPosion(position:BoardPosition) -> ChessPiece? {
         for piece in piecesOnBoard {
-            if piece.position == postion {
+            if piece.position == position {
                 return piece
             }
         }
@@ -91,7 +108,7 @@ class GameBoard{
     
     //Returns true if targetPiece is an enemy
     func isEnemyPiece(colorOfPiece:PieceColor, position:BoardPosition) -> Bool{
-        if let targetPiece = GameBoard().pieceOnPosion(postion: position){
+        if let targetPiece = GameBoard().pieceOnPosion(position: position){
             if colorOfPiece != targetPiece.colorOfPiece{
                 return true
             }
@@ -100,12 +117,12 @@ class GameBoard{
     }
     
     //Returns true if position is empty
-    func IsPostionEmpty(postion:BoardPosition) -> Bool{
-        return (pieceOnPosion(postion: postion) == nil)
+    func IspositionEmpty(position:BoardPosition) -> Bool{
+        return (pieceOnPosion(position: position) == nil)
     }
     
     //Returns a BoardPoston from a string representation
-    class func stringToPostion(string: String) -> BoardPosition? {
+    class func stringToPosition(string: String) -> BoardPosition? {
         let split = Array(string.characters)
         let string:String = String((split[1]))
         
@@ -115,7 +132,7 @@ class GameBoard{
         return nil
     }
     
-    func placePiecesOnBoard(){
+    func createPieces(){
         let pawnPiece1 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("a",2))
         let pawnPiece2 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("b",2))
         let pawnPiece3 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("c",2))
@@ -124,7 +141,6 @@ class GameBoard{
         let pawnPiece6 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("f",2))
         let pawnPiece7 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("g",2))
         let pawnPiece8 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("h",2))
-        let pawnPiece9 = PawnPiece(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.black, position:("c",3))
         
         piecesOnBoard.append(pawnPiece1)
         piecesOnBoard.append(pawnPiece2)
@@ -134,6 +150,5 @@ class GameBoard{
         piecesOnBoard.append(pawnPiece6)
         piecesOnBoard.append(pawnPiece7)
         piecesOnBoard.append(pawnPiece8)
-        piecesOnBoard.append(pawnPiece9)
     }
 }

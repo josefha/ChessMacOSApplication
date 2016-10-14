@@ -12,18 +12,49 @@ import GameKit
 
 class Graphics{
     
-
-    class func initPieces(){
-        
-        //if let a2 = squares.contains(where: {$0.name == "a2"}).first {pawn1.position = a2.postion}
-        
+    class func initGraphics(){
+        initSquares(wHeight: 600, wWidth: 600)
+        initPieces()
+    }
+    
+    class func movePiece(piece: SKSpriteNode, position: BoardPosition){
+        piece.position = findSquare(squares: squares, position: position).position
+    }
+    
+    class func removePiece(piece: SKSpriteNode){
+        piece.removeFromParent()
     }
     
     //OBB !! - Need to know if it was black or white before it was changed.
-    class func resetSquareHighlights(positions: [BoardPosition]){
-        for postion in positions {
-            let square = Graphics.findSquare(squares: squares, position: postion)
-            square.color = SKColor.white
+//    class func resetSquareHighlights(positions: [BoardPosition]){
+//        for position in positions {
+//            let square = Graphics.findSquare(squares: squares, position: position)
+//            square.color = SKColor.white
+//        }
+//    }
+//    
+    class func resetSquareHighlights(){
+        
+        var i = 1
+        
+        
+        for square in squares {
+            if i > 1 && i <= 8 {
+                i = i + 1
+            }
+            else if i > 8 {
+                i = 1
+            }else {
+                i = i + 1
+            }
+            
+            if i % 2 == 0 {
+                square.color = SKColor.white
+            }
+            else{
+                square.color = SKColor.lightGray
+            }
+
         }
     }
     
@@ -35,14 +66,113 @@ class Graphics{
         }
     }
     
+    class func findGraphicalPiece(position: BoardPosition, squares: [SKSpriteNode], pieces: [SKSpriteNode]) -> SKSpriteNode?{
+        let pieceposition = self.findSquare(squares: squares, position: position).position
+        
+        print(pieceposition)
+        for piece in pieces {
+            if piece.position == pieceposition{
+                return piece
+            }
+        }
+        return nil
+    }
+    
+    //Return square:SKSpriteNode at specific position
     class func findSquare(squares: [SKSpriteNode], position: BoardPosition) -> SKSpriteNode {
         for square in squares {
-            if square.name == GameBoard.boardPostionToString(position: position){
+            if square.name == GameBoard.boardpositionToString(position: position){
                 return square
             }
         }
-        return squares.first!
+        return squares.first! // should never happen, return optional Boardpositioninstead ?
     }
+    
+    class func initPieces(){
+        let pawnW1 = SKSpriteNode(imageNamed: "pawn-white")
+        pawnW1.position = findSquare(squares: squares, position: ("a",2)).position
+        let pawnW2 = SKSpriteNode(imageNamed: "pawn-white")
+        pawnW2.position = findSquare(squares: squares, position: ("b",2)).position
+        let pawnW3 = SKSpriteNode(imageNamed: "pawn-white")
+        pawnW3.position = findSquare(squares: squares, position: ("c",2)).position
+        let pawnW4 = SKSpriteNode(imageNamed: "pawn-white")
+        pawnW4.position = findSquare(squares: squares, position: ("d",2)).position
+        let pawnW5 = SKSpriteNode(imageNamed: "pawn-white")
+        pawnW5.position = findSquare(squares: squares, position: ("e",2)).position
+        let pawnW6 = SKSpriteNode(imageNamed: "pawn-white")
+        pawnW6.position = findSquare(squares: squares, position: ("f",2)).position
+        let pawnW7 = SKSpriteNode(imageNamed: "pawn-white")
+        pawnW7.position = findSquare(squares: squares, position: ("g",2)).position
+        let pawnW8 = SKSpriteNode(imageNamed: "pawn-white")
+        pawnW8.position = findSquare(squares: squares, position: ("h",2)).position
+        
+        let rookW1 = SKSpriteNode(imageNamed: "rook-white")
+        rookW1.position = findSquare(squares: squares, position: ("a",1)).position
+        let rookW2 = SKSpriteNode(imageNamed: "rook-white")
+        rookW2.position = findSquare(squares: squares, position: ("h",1)).position
+        
+        let knightW1 = SKSpriteNode(imageNamed: "knight-white")
+        knightW1.position = findSquare(squares: squares, position: ("b",1)).position
+        let knightW2 = SKSpriteNode(imageNamed: "knight-white")
+        knightW2.position = findSquare(squares: squares, position: ("g",1)).position
+        
+        let bishopW1 = SKSpriteNode(imageNamed: "bishop-white")
+        bishopW1.position = findSquare(squares: squares, position: ("c",1)).position
+        let bishopW2 = SKSpriteNode(imageNamed: "bishop-white")
+        bishopW2.position = findSquare(squares: squares, position: ("f",1)).position
+        
+        let queenW = SKSpriteNode(imageNamed: "queen-white")
+        queenW.position = findSquare(squares: squares, position: ("d",1)).position
+        
+        let kingW = SKSpriteNode(imageNamed: "king-white")
+        kingW.position = findSquare(squares: squares, position: ("e",1)).position
+        
+        let pawnB1 = SKSpriteNode(imageNamed: "pawn-black")
+        pawnB1.position = findSquare(squares: squares, position: ("a",7)).position
+        let pawnB2 = SKSpriteNode(imageNamed: "pawn-black")
+        pawnB2.position = findSquare(squares: squares, position: ("b",7)).position
+        let pawnB3 = SKSpriteNode(imageNamed: "pawn-black")
+        pawnB3.position = findSquare(squares: squares, position: ("c",7)).position
+        let pawnB4 = SKSpriteNode(imageNamed: "pawn-black")
+        pawnB4.position = findSquare(squares: squares, position: ("d",7)).position
+        let pawnB5 = SKSpriteNode(imageNamed: "pawn-black")
+        pawnB5.position = findSquare(squares: squares, position: ("e",7)).position
+        let pawnB6 = SKSpriteNode(imageNamed: "pawn-black")
+        pawnB6.position = findSquare(squares: squares, position: ("f",7)).position
+        let pawnB7 = SKSpriteNode(imageNamed: "pawn-black")
+        pawnB7.position = findSquare(squares: squares, position: ("g",7)).position
+        let pawnB8 = SKSpriteNode(imageNamed: "pawn-black")
+        pawnB8.position = findSquare(squares: squares, position: ("h",7)).position
+        
+        
+        let rookB1 = SKSpriteNode(imageNamed: "rook-black")
+        rookB1.position = findSquare(squares: squares, position: ("a",8)).position
+        let rookB2 = SKSpriteNode(imageNamed: "rook-black")
+        rookB2.position = findSquare(squares: squares, position: ("h",8)).position
+        
+        let knightB1 = SKSpriteNode(imageNamed: "knight-black")
+        knightB1.position = findSquare(squares: squares, position: ("b",8)).position
+        let knightB2 = SKSpriteNode(imageNamed: "knight-black")
+        knightB2.position = findSquare(squares: squares, position: ("g",8)).position
+        
+        let bishopB1 = SKSpriteNode(imageNamed: "bishop-black")
+        bishopB1.position = findSquare(squares: squares, position: ("c",8)).position
+        let bishopB2 = SKSpriteNode(imageNamed: "bishop-black")
+        bishopB2.position = findSquare(squares: squares, position: ("f",8)).position
+        
+        let queenB = SKSpriteNode(imageNamed: "queen-black")
+        queenB.position = findSquare(squares: squares, position: ("d",8)).position
+        
+        let kingB = SKSpriteNode(imageNamed: "king-black")
+        kingB.position = findSquare(squares: squares, position: ("e",8)).position
+        
+        piecesInGraphic = [pawnW1,pawnW2,pawnW3,pawnW4,pawnW5,pawnW6,pawnW7,pawnW8,
+                           pawnB1,pawnB2,pawnB3,pawnB4,pawnB5,pawnB6,pawnB7,pawnB8,
+                           rookB1,rookB2,rookW1,rookW2, knightB1,knightB2,knightW1,
+                           knightW2,bishopB1,bishopB2,bishopW1,bishopW2,queenB,
+                           queenW,kingB,kingW]
+    }
+    
     
     class func initSquares(wHeight: CGFloat, wWidth: CGFloat){
         

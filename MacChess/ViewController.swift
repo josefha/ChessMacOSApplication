@@ -17,8 +17,6 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        GameBoard().placePiecesOnBoard()
     
         if let view = self.skView {
             // Load the SKScene from 'GameScene.sks'
