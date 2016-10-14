@@ -25,6 +25,8 @@ class ViewController: NSViewController {
                 
                 scene.scaleMode = .resizeFill
                 // Present the scene
+                //scene.size = CGSize(width: 500, height: 1024)
+                
                 view.presentScene(scene)
             }
             

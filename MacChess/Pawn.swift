@@ -7,10 +7,8 @@
 //
 
 import Foundation
-import SpriteKit
-import GameKit
 
-class PawnPiece: ChessPiece {
+class Pawn: ChessPiece {
     
     override func possibleMoves() -> [BoardPosition]{
         
@@ -18,16 +16,27 @@ class PawnPiece: ChessPiece {
         
         //TODO: Possible twosteps in First Postion
         //TODO: Turn into Queen on last row
-        //TODO: Different moves depending on what piececolor.. (only for the pown piece)
-        if let move = ChessMoves().moveOneStep(position:self.position, directions: direction.up){
-            possibleMoves.append(move)
+        //TODO: Different moves depending on what piececolor.. (only for the pown piece) - FIXED
+        //TODO: Bug when black try to take on white last row.. 
+        
+        var forward = direction.up
+        
+        if self.colorOfPiece == PieceColor.black{
+            forward = direction.down
         }
-        if let move = ChessMoves().moveNsteps(position:self.position, directions: [direction.up, direction.right]){
+        
+        
+        if let move = ChessMoves().moveOneStep(position:self.position, directions: forward){
+            if GameBoard().pieceOnPosion(position: move) == nil {
+                possibleMoves.append(move)
+            }
+        }
+        if let move = ChessMoves().moveNsteps(position:self.position, directions: [forward, direction.right]){
             if(GameBoard().isEnemyPiece(colorOfPiece: self.colorOfPiece, position: move)){
                 possibleMoves.append(move)
             }
         }
-        if let move = ChessMoves().moveNsteps(position:self.position, directions: [direction.up, direction.left]){
+        if let move = ChessMoves().moveNsteps(position:self.position, directions: [forward, direction.left]){
             if(GameBoard().isEnemyPiece(colorOfPiece: self.colorOfPiece, position: move)){
                 possibleMoves.append(move)
             }

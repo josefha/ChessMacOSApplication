@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2523E441DB18382003CD6CB /* Rook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2523E431DB18382003CD6CB /* Rook.swift */; };
+		D2523E461DB18401003CD6CB /* Bishop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2523E451DB18401003CD6CB /* Bishop.swift */; };
+		D2523E481DB18428003CD6CB /* King.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2523E471DB18428003CD6CB /* King.swift */; };
+		D2523E4A1DB1843E003CD6CB /* Queen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2523E491DB1843E003CD6CB /* Queen.swift */; };
+		D2523E4C1DB184B8003CD6CB /* Knight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2523E4B1DB184B8003CD6CB /* Knight.swift */; };
 		D27CE1541DA7E98D0010DF95 /* Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CE1531DA7E98D0010DF95 /* Graphics.swift */; };
 		D2AD767E1D9560440012A5EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD767D1D9560440012A5EF /* AppDelegate.swift */; };
 		D2AD76801D9560440012A5EF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2AD767F1D9560440012A5EF /* GameScene.sks */; };
@@ -18,10 +23,9 @@
 		D2AD76961D9560440012A5EF /* MacChessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD76951D9560440012A5EF /* MacChessTests.swift */; };
 		D2AD76A11D9560440012A5EF /* MacChessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD76A01D9560440012A5EF /* MacChessUITests.swift */; };
 		D2AD76B11D9566970012A5EF /* ChessPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD76B01D9566970012A5EF /* ChessPiece.swift */; };
-		D2AD76B31D9567D70012A5EF /* PawnPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD76B21D9567D70012A5EF /* PawnPiece.swift */; };
+		D2AD76B31D9567D70012A5EF /* Pawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD76B21D9567D70012A5EF /* Pawn.swift */; };
 		D2AD76B51D956E5C0012A5EF /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD76B41D956E5C0012A5EF /* GameBoard.swift */; };
 		D2AD76B71D957EC30012A5EF /* ChessMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD76B61D957EC30012A5EF /* ChessMoves.swift */; };
-		D2AD76B91D9581420012A5EF /* PieceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD76B81D9581420012A5EF /* PieceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2523E431DB18382003CD6CB /* Rook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rook.swift; path = ../Rook.swift; sourceTree = "<group>"; };
+		D2523E451DB18401003CD6CB /* Bishop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bishop.swift; path = ../Bishop.swift; sourceTree = "<group>"; };
+		D2523E471DB18428003CD6CB /* King.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = King.swift; path = ../King.swift; sourceTree = "<group>"; };
+		D2523E491DB1843E003CD6CB /* Queen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Queen.swift; path = ../Queen.swift; sourceTree = "<group>"; };
+		D2523E4B1DB184B8003CD6CB /* Knight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Knight.swift; path = ../Knight.swift; sourceTree = "<group>"; };
 		D27CE1531DA7E98D0010DF95 /* Graphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graphics.swift; sourceTree = "<group>"; };
 		D2AD767A1D9560440012A5EF /* MacChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AD767D1D9560440012A5EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,10 +68,9 @@
 		D2AD76A01D9560440012A5EF /* MacChessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacChessUITests.swift; sourceTree = "<group>"; };
 		D2AD76A21D9560440012A5EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AD76B01D9566970012A5EF /* ChessPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChessPiece.swift; path = ../ChessPiece.swift; sourceTree = "<group>"; };
-		D2AD76B21D9567D70012A5EF /* PawnPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PawnPiece.swift; sourceTree = "<group>"; };
+		D2AD76B21D9567D70012A5EF /* Pawn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pawn.swift; path = ../Pawn.swift; sourceTree = "<group>"; };
 		D2AD76B41D956E5C0012A5EF /* GameBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		D2AD76B61D957EC30012A5EF /* ChessMoves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessMoves.swift; sourceTree = "<group>"; };
-		D2AD76B81D9581420012A5EF /* PieceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2523E4D1DB189FB003CD6CB /* pieces */ = {
+			isa = PBXGroup;
+			children = (
+				D2523E4B1DB184B8003CD6CB /* Knight.swift */,
+				D2523E491DB1843E003CD6CB /* Queen.swift */,
+				D2523E471DB18428003CD6CB /* King.swift */,
+				D2523E451DB18401003CD6CB /* Bishop.swift */,
+				D2523E431DB18382003CD6CB /* Rook.swift */,
+				D2AD76B21D9567D70012A5EF /* Pawn.swift */,
+			);
+			path = pieces;
+			sourceTree = "<group>";
+		};
 		D2AD76711D9560430012A5EF = {
 			isa = PBXGroup;
 			children = (
@@ -118,13 +139,12 @@
 				D2AD76811D9560440012A5EF /* Actions.sks */,
 				D2AD76851D9560440012A5EF /* ViewController.swift */,
 				D27CE1531DA7E98D0010DF95 /* Graphics.swift */,
-				D2AD76831D9560440012A5EF /* GameScene.swift */,
 				D2AD76871D9560440012A5EF /* Assets.xcassets */,
+				D2AD76831D9560440012A5EF /* GameScene.swift */,
 				D2AD76B41D956E5C0012A5EF /* GameBoard.swift */,
-				D2AD76B61D957EC30012A5EF /* ChessMoves.swift */,
+				D2523E4D1DB189FB003CD6CB /* pieces */,
 				D2AD76B01D9566970012A5EF /* ChessPiece.swift */,
-				D2AD76B21D9567D70012A5EF /* PawnPiece.swift */,
-				D2AD76B81D9581420012A5EF /* PieceProtocol.swift */,
+				D2AD76B61D957EC30012A5EF /* ChessMoves.swift */,
 				D2AD76891D9560440012A5EF /* Main.storyboard */,
 				D2AD768C1D9560440012A5EF /* Info.plist */,
 			);
@@ -284,14 +304,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2523E4C1DB184B8003CD6CB /* Knight.swift in Sources */,
+				D2523E441DB18382003CD6CB /* Rook.swift in Sources */,
+				D2523E4A1DB1843E003CD6CB /* Queen.swift in Sources */,
 				D2AD76861D9560440012A5EF /* ViewController.swift in Sources */,
+				D2523E461DB18401003CD6CB /* Bishop.swift in Sources */,
 				D2AD76B71D957EC30012A5EF /* ChessMoves.swift in Sources */,
 				D2AD76841D9560440012A5EF /* GameScene.swift in Sources */,
-				D2AD76B31D9567D70012A5EF /* PawnPiece.swift in Sources */,
+				D2AD76B31D9567D70012A5EF /* Pawn.swift in Sources */,
 				D2AD767E1D9560440012A5EF /* AppDelegate.swift in Sources */,
 				D2AD76B51D956E5C0012A5EF /* GameBoard.swift in Sources */,
 				D27CE1541DA7E98D0010DF95 /* Graphics.swift in Sources */,
-				D2AD76B91D9581420012A5EF /* PieceProtocol.swift in Sources */,
+				D2523E481DB18428003CD6CB /* King.swift in Sources */,
 				D2AD76B11D9566970012A5EF /* ChessPiece.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,46 +17,16 @@ class Graphics{
         initPieces()
     }
     
+    //Moves a piece in the GameScene
     class func movePiece(piece: SKSpriteNode, position: BoardPosition){
         piece.position = findSquare(squares: squares, position: position).position
     }
     
+    //Removes a pieces from the GameScene
     class func removePiece(piece: SKSpriteNode){
         piece.removeFromParent()
     }
     
-    //OBB !! - Need to know if it was black or white before it was changed.
-//    class func resetSquareHighlights(positions: [BoardPosition]){
-//        for position in positions {
-//            let square = Graphics.findSquare(squares: squares, position: position)
-//            square.color = SKColor.white
-//        }
-//    }
-//    
-    class func resetSquareHighlights(){
-        
-        var i = 1
-        
-        
-        for square in squares {
-            if i > 1 && i <= 8 {
-                i = i + 1
-            }
-            else if i > 8 {
-                i = 1
-            }else {
-                i = i + 1
-            }
-            
-            if i % 2 == 0 {
-                square.color = SKColor.white
-            }
-            else{
-                square.color = SKColor.lightGray
-            }
-
-        }
-    }
     
     //highlights squares that are possible to move to
     class func highlightPossibleMoves(squares: [SKSpriteNode], moves: [BoardPosition]){
@@ -66,6 +36,7 @@ class Graphics{
         }
     }
     
+    //Find a piece at a specific boradPostion
     class func findGraphicalPiece(position: BoardPosition, squares: [SKSpriteNode], pieces: [SKSpriteNode]) -> SKSpriteNode?{
         let pieceposition = self.findSquare(squares: squares, position: position).position
         
@@ -86,6 +57,28 @@ class Graphics{
             }
         }
         return squares.first! // should never happen, return optional Boardpositioninstead ?
+    }
+    
+    //resets all squares to orginal color
+    class func resetHighlights(){
+        
+        var i = 1
+        
+        for square in squares {
+            if (i == 9 || i == 18 || i == 27 || i == 36 || i == 45 || i == 54 || i == 63 || i == 72) {
+                i = i + 1
+            }
+            
+            i = i + 1
+            
+            if i % 2 == 0 {
+                square.color = SKColor.lightGray
+            }
+            else{
+                square.color = SKColor.white
+            }
+            
+        }
     }
     
     class func initPieces(){
