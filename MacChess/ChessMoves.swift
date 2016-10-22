@@ -16,13 +16,13 @@ enum direction {
 class ChessMoves {
     
     //returns true if position is on chessboard
-    func IsPositionOnBoard(position:BoardPosition) -> Bool {
+    class private func IsPositionOnBoard(position:BoardPosition) -> Bool {
         let (c,i) = position
         return (i >= 1 && i <= 8 && c>="a" && c<="h")
     }
     
     //Moves N steps with the list of directions
-    func moveNsteps(position: BoardPosition, directions:[direction]) -> BoardPosition? {
+    class func moveNsteps(position: BoardPosition, directions:[direction]) -> BoardPosition? {
         var finalposition:BoardPosition = position
         
         for direction in directions {
@@ -39,7 +39,7 @@ class ChessMoves {
     
     //Returns a position moved one direction
     //small characters as input
-    func moveOneStep(position: BoardPosition, directions:direction) -> BoardPosition?{
+    class private func moveOneStep(position: BoardPosition, directions:direction) -> BoardPosition?{
         
         let charList:[Character] = ["A","a","b","c","d","e","f","g","h","i"]
         let (c,i) = position

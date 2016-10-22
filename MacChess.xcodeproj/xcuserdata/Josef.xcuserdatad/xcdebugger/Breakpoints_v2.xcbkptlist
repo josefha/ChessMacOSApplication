@@ -136,7 +136,7 @@
                   moduleName = "MacChess"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Josef/Desktop/MacChess/ChessPiece.swift"
-                  timestampString = "498838781.388781"
+                  timestampString = "498846682.277588"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -151,7 +151,7 @@
                   moduleName = "MacChess"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Josef/Desktop/MacChess/ChessPiece.swift"
-                  timestampString = "498838781.390948"
+                  timestampString = "498846682.279365"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -390,11 +390,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacChess/queen.swift"
-            timestampString = "498173912.756086"
+            timestampString = "498846282.875613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22">
+            startingLineNumber = "51"
+            endingLineNumber = "51">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -420,11 +420,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacChess/Pawn.swift"
-            timestampString = "498178557.991636"
+            timestampString = "498842066.57478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "possibleMoves()"
             landmarkType = "7">
             <Locations>
@@ -436,12 +436,12 @@
                   moduleName = "MacChess"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Josef/Desktop/MacChess/MacChess/Pawn.swift"
-                  timestampString = "498838781.404187"
+                  timestampString = "498846682.290639"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "154">
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "157">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -451,12 +451,12 @@
                   moduleName = "MacChess"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Josef/Desktop/MacChess/MacChess/Pawn.swift"
-                  timestampString = "498838781.405705"
+                  timestampString = "498846682.292412"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "443">
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "463">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -468,11 +468,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacChess/Pawn.swift"
-            timestampString = "498178486.917897"
+            timestampString = "498842066.57478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "possibleMoves()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacChess/Knight.swift"
+            timestampString = "498846680.744415"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "possibleMoves()"
             landmarkType = "7">
          </BreakpointContent>
