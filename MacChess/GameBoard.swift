@@ -26,9 +26,9 @@ class GameBoard{
     func makeMove(piece: ChessPiece, destination: BoardPosition){
 
         if pieceOnPosion(position: destination) != nil{
-            removePiece(position: destination)
-            if let gPiece = Graphics.findGraphicalPiece(position: destination, squares: squares, pieces: piecesInGraphic){
-                Graphics.removePiece(piece: gPiece)
+            if let enemyPiece = Graphics.findGraphicalPiece(position: destination, squares: squares, pieces: piecesInGraphic){
+                Graphics.removePiece(piece: enemyPiece)
+                removePiece(position: destination)
             }
             else{print("ERROR: Graphics is not in sync - REMOVE")}
         }
@@ -55,11 +55,19 @@ class GameBoard{
                 makeMove(piece: piece, destination: click)
             }
             else{
-                selectPiece(click: click)
+                if let _ = pieceOnPosion(position: click){
+                    selectPiece(click: click)
+                }
+                else{
+                    pieceSelected = nil
+                }
             }
         }
         else if pieceSelected == nil {
             selectPiece(click: click)
+        }
+        else {
+            pieceSelected = nil
         }
     }
     

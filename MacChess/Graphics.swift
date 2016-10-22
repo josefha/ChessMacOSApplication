@@ -24,6 +24,10 @@ class Graphics{
     
     //Removes a pieces from the GameScene
     class func removePiece(piece: SKSpriteNode){
+        if let index = piecesInGraphic.index(of: piece){
+            piecesInGraphic.remove(at: index)
+        }
+        
         piece.removeFromParent()
     }
     
@@ -39,8 +43,6 @@ class Graphics{
     //Find a piece at a specific boradPostion
     class func findGraphicalPiece(position: BoardPosition, squares: [SKSpriteNode], pieces: [SKSpriteNode]) -> SKSpriteNode?{
         let pieceposition = self.findSquare(squares: squares, position: position).position
-        
-        print(pieceposition)
         for piece in pieces {
             if piece.position == pieceposition{
                 return piece

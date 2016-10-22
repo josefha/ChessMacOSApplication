@@ -28,7 +28,7 @@ class GameScene: SKScene {
         for square in squares {
             addChild(square)
         }
-        for piece in piecesInGraphic {
+        for piece in piecesInGraphic{
             piece.size = CGSize.init(width: self.size.height/9, height: self.size.height/9)
             addChild(piece)
         }
@@ -42,7 +42,6 @@ class GameScene: SKScene {
         for node in nodes{
             if let name = node.name {
                 if let posistion = GameBoard.stringToPosition(string: name){
-                    print(posistion)
                     self.gameBoard.positionSelected(click: posistion)
                 }
             }
