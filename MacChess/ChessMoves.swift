@@ -15,6 +15,8 @@ enum direction {
 
 class ChessMoves {
     
+
+    
     //returns true if position is on chessboard
     class private func IsPositionOnBoard(position:BoardPosition) -> Bool {
         let (c,i) = position

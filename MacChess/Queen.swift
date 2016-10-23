@@ -41,6 +41,7 @@ class Queen: ChessPiece {
                 
             }
         }
+        
         return possibleMoves
     }
     

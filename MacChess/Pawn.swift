@@ -14,7 +14,6 @@ class Pawn: ChessPiece {
         
         var possibleMoves:[BoardPosition] = []
         
-        //TODO: Possible twosteps in First Postion
         //TODO: Turn into Queen on last row
         
         var forward = direction.up
@@ -39,8 +38,18 @@ class Pawn: ChessPiece {
                 possibleMoves.append(move)
             }
         }
+        
+        let (_,i) = self.position
+        if ((i == 2 && self.colorOfPiece == .white) || (i == 7 && self.colorOfPiece == .black)){
+            if let move = ChessMoves.moveNsteps(position: self.position, directions: [forward, forward]){
+                if GameBoard().pieceOnPosion(position: move) == nil {
+                    possibleMoves.append(move)
+                }
+            }
+        }
         return possibleMoves
     }
+    
     
     override init(typeOfPiece:PieceType, colorOfPiece:PieceColor, position:BoardPosition){
         super.init(typeOfPiece: typeOfPiece, colorOfPiece: colorOfPiece, position: position)

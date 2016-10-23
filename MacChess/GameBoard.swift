@@ -16,15 +16,41 @@ class GameBoard{
 
     var pieceSelected: ChessPiece? = nil
     var turnToMove: PieceColor = PieceColor.white
+    var check: Bool = false
     
     init(){
         //Need to remove global var.. create getters and setters
-        //createPieces()
+    }
+    
+    func checkIfKingNotInCheckPostionAfterMove(){
+        if KingInCheckPosition() == true {
+            print("CHECK CHECK")
+        }
+    }
+    
+    func KingInCheckPosition() -> Bool {
+        for piece in piecesOnBoard {
+            if piece.colorOfPiece == enemyColor(color: turnToMove) {
+                if piece.possibleMoves().contains(where: { $0 == kingsPosition(color: turnToMove, pieces: piecesOnBoard)! }){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    //return pieceColor of opposite player
+    func enemyColor(color: PieceColor) -> PieceColor {
+        if color == .white {
+            return .black
+        }
+        else {
+            return .white
+        }
     }
     
     //Moves a pieces in our game with a possible move.
     func makeMove(piece: ChessPiece, destination: BoardPosition){
-
         if pieceOnPosion(position: destination) != nil{
             if let enemyPiece = Graphics.findGraphicalPiece(position: destination, squares: squares, pieces: piecesInGraphic){
                 Graphics.removePiece(piece: enemyPiece)
@@ -41,6 +67,20 @@ class GameBoard{
         
         pieceSelected = nil
         changeTurnToMove()
+        
+        
+        //note done, Change pawn to Queen on last row.
+        if piece.typeOfPiece == .pawn {
+            let (_,i) = piece.position
+            if ((i == 8 && piece.colorOfPiece == .white) || (i == 1 && piece.colorOfPiece == .black)){
+                print("Change pawn to Queen")
+            }
+        }
+        
+        if KingInCheckPosition() == true {
+            print("CHECK \(turnToMove)")
+            check = true
+        }
     }
 
     
@@ -85,11 +125,11 @@ class GameBoard{
     
     //changes class var turnToMove to enemy color
     func changeTurnToMove(){
-        if turnToMove == PieceColor.white {
-            turnToMove = PieceColor.black
+        if turnToMove == .white {
+            turnToMove = .black
         }
         else {
-            turnToMove = PieceColor.white
+            turnToMove = .white
         }
     }
     
@@ -137,6 +177,16 @@ class GameBoard{
         
         if let int:Int = Int(string) {
             return (split[0],int)
+        }
+        return nil
+    }
+    
+    //Returns BoeardPostion of the king piece
+    func kingsPosition(color:PieceColor, pieces:[ChessPiece]) -> BoardPosition?{
+        for piece in pieces {
+            if piece.colorOfPiece == color && piece.typeOfPiece == PieceType.king{
+                return piece.position
+            }
         }
         return nil
     }
