@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import SpriteKit
 
 typealias BoardPosition = (Character, Int)
+
 
 var piecesOnBoard:[ChessPiece] = []
 
@@ -18,26 +20,7 @@ class GameBoard{
     var turnToMove: PieceColor = PieceColor.white
     var check: Bool = false
     
-    init(){
-        //Need to remove global var.. create getters and setters
-    }
-    
-    func checkIfKingNotInCheckPostionAfterMove(){
-        if KingInCheckPosition() == true {
-            print("CHECK CHECK")
-        }
-    }
-    
-    func KingInCheckPosition() -> Bool {
-        for piece in piecesOnBoard {
-            if piece.colorOfPiece == enemyColor(color: turnToMove) {
-                if piece.possibleMoves().contains(where: { $0 == kingsPosition(color: turnToMove, pieces: piecesOnBoard)! }){
-                    return true
-                }
-            }
-        }
-        return false
-    }
+    init(){}
     
     //return pieceColor of opposite player
     func enemyColor(color: PieceColor) -> PieceColor {
@@ -50,16 +33,16 @@ class GameBoard{
     }
     
     //Moves a pieces in our game with a possible move.
-    func makeMove(piece: ChessPiece, destination: BoardPosition){
+    func makeMove(piece: ChessPiece, destination: BoardPosition, piecesInGraphics: [SKSpriteNode], gameScene: GameScene){
         if pieceOnPosion(position: destination) != nil{
-            if let enemyPiece = Graphics.findGraphicalPiece(position: destination, squares: squares, pieces: piecesInGraphic){
-                Graphics.removePiece(piece: enemyPiece)
+            if let enemyPiece = Graphics.findGraphicalPiece(position: destination, squares: squares, pieces: piecesInGraphics){
+                Graphics.removePiece(piece: enemyPiece, piecesInGraphics: piecesInGraphics, gameScene: gameScene)
                 removePiece(position: destination)
             }
             else{print("ERROR: Graphics is not in sync - REMOVE")}
         }
         
-        if let gPiece = Graphics.findGraphicalPiece(position: piece.position, squares: squares, pieces: piecesInGraphic){
+        if let gPiece = Graphics.findGraphicalPiece(position: piece.position, squares: squares, pieces: piecesInGraphics){
             Graphics.movePiece(piece: gPiece, position: destination)
             piece.position = destination
         }
@@ -87,12 +70,12 @@ class GameBoard{
 
 
     //runs after every click, starts game logic
-    func positionSelected(click: BoardPosition) {
+    func positionSelected(click: BoardPosition, piecesInGraphics: [SKSpriteNode], gameScene: GameScene) {
         Graphics.resetHighlights()
         
         if let piece = pieceSelected {
             if piece.possibleMoves().contains(where: { $0 == click}){
-                makeMove(piece: piece, destination: click)
+                makeMove(piece: piece, destination: click, piecesInGraphics: piecesInGraphics, gameScene: gameScene)
             }
             else{
                 if let _ = pieceOnPosion(position: click){
@@ -181,6 +164,25 @@ class GameBoard{
         return nil
     }
     
+    //obs not finished
+    func checkIfKingNotInCheckPostionAfterMove(){
+        if KingInCheckPosition() == true {
+            print("CHECK CHECK")
+        }
+    }
+    
+    //returns true if king is in check postion
+    func KingInCheckPosition() -> Bool {
+        for piece in piecesOnBoard {
+            if piece.colorOfPiece == enemyColor(color: turnToMove) {
+                if piece.possibleMoves().contains(where: { $0 == kingsPosition(color: turnToMove, pieces: piecesOnBoard)! }){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
     //Returns BoeardPostion of the king piece
     func kingsPosition(color:PieceColor, pieces:[ChessPiece]) -> BoardPosition?{
         for piece in pieces {
@@ -191,7 +193,7 @@ class GameBoard{
         return nil
     }
     
-    //Can they be changed when we write let here ? yes ? why ?
+    //inits the board pieces
     func createPieces(){
         let pawn1W = Pawn(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("a",2))
         let pawn2W = Pawn(typeOfPiece:PieceType.pawn, colorOfPiece: PieceColor.white, position:("b",2))

@@ -11,15 +11,19 @@ import GameplayKit
 
 
 var squares:[SKSpriteNode] = []
-var piecesInGraphic:[SKSpriteNode] = []
 
 class GameScene: SKScene {
     
+    var piecesInGraphic:[SKSpriteNode] = []
     var gameBoard: GameBoard = GameBoard()
     
+    func removePiecesInGraphic(index:Int){
+        self.piecesInGraphic.remove(at: index)
+    }
+    
+    
     override func didMove(to view: SKView) {
-
-        Graphics.initGraphics()
+        piecesInGraphic = Graphics.initGraphics()
         addGraphicsToGameScene()
         gameBoard.createPieces()
     }
@@ -35,22 +39,17 @@ class GameScene: SKScene {
     }
 
 
-    
+    //function that handle a user click
     override func mouseDown(with event: NSEvent) {
         let click = event.locationInWindow
         let nodes = self.nodes(at: click)
-        for node in nodes{
+        for node in nodes {
             if let name = node.name {
                 if let posistion = GameBoard.stringToPosition(string: name){
-                    self.gameBoard.positionSelected(click: posistion)
+                    self.gameBoard.positionSelected(click: posistion, piecesInGraphics: piecesInGraphic, gameScene: self)
                 }
             }
         }
     }
 }
-
-    
-    //override func update(_ currentTime: TimeInterval) {
-    //      Called before each frame is rendered
-    //}
 

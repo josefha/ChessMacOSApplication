@@ -12,9 +12,9 @@ import GameKit
 
 class Graphics{
     
-    class func initGraphics(){
+    class func initGraphics() -> [SKSpriteNode]{
         initSquares(wHeight: 600, wWidth: 600)
-        initPieces()
+        return initPieces()
     }
     
     //Moves a piece in the GameScene
@@ -23,11 +23,10 @@ class Graphics{
     }
     
     //Removes a pieces from the GameScene
-    class func removePiece(piece: SKSpriteNode){
-        if let index = piecesInGraphic.index(of: piece){
-            piecesInGraphic.remove(at: index)
-        }
-        
+    class func removePiece(piece: SKSpriteNode, piecesInGraphics:[SKSpriteNode], gameScene: GameScene){
+        if let index = piecesInGraphics.index(of: piece){
+                gameScene.removePiecesInGraphic(index:index)
+            }
         piece.removeFromParent()
     }
     
@@ -83,7 +82,7 @@ class Graphics{
         }
     }
     
-    class func initPieces(){
+    class func initPieces() -> [SKSpriteNode]{
         let pawnW1 = SKSpriteNode(imageNamed: "pawn-white")
         pawnW1.position = findSquare(squares: squares, position: ("a",2)).position
         let pawnW2 = SKSpriteNode(imageNamed: "pawn-white")
@@ -161,18 +160,17 @@ class Graphics{
         let kingB = SKSpriteNode(imageNamed: "king-black")
         kingB.position = findSquare(squares: squares, position: ("e",8)).position
         
-        piecesInGraphic = [pawnW1,pawnW2,pawnW3,pawnW4,pawnW5,pawnW6,pawnW7,pawnW8,
-                           pawnB1,pawnB2,pawnB3,pawnB4,pawnB5,pawnB6,pawnB7,pawnB8,
-                           rookB1,rookB2,rookW1,rookW2, knightB1,knightB2,knightW1,
-                           knightW2,bishopB1,bishopB2,bishopW1,bishopW2,queenB,
-                           queenW,kingB,kingW]
+        return [pawnW1,pawnW2,pawnW3,pawnW4,pawnW5,pawnW6,pawnW7,pawnW8,
+                pawnB1,pawnB2,pawnB3,pawnB4,pawnB5,pawnB6,pawnB7,pawnB8,
+                rookB1,rookB2,rookW1,rookW2, knightB1,knightB2,knightW1,
+                knightW2,bishopB1,bishopB2,bishopW1,bishopW2,queenB,
+                queenW,kingB,kingW]
     }
     
     
     class func initSquares(wHeight: CGFloat, wWidth: CGFloat){
         
-        print("init the graphic")
-        
+        print("init graphics")
         
         let windowHieght = CGFloat(600) //wHeight
         let windowWidth = CGFloat(600) //wWidth
@@ -340,6 +338,7 @@ class Graphics{
         
         var i = 1
         
+        //overcomplicaded code that places squares on board
         for value in squares {
             if i > 1 && i <= 8 {
                 yVal += windowWidth/8
